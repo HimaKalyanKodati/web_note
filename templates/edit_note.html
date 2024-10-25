@@ -1,0 +1,42 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create or Edit</title>
+    <link rel="stylesheet" href="{% static "css/styles.css" %}">
+    
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Create or Edit</h1>
+        </header>
+
+        <section class="actions">
+            <a href="{% url "noteapp:show" %}">Back</a>
+        </section>
+
+        <section class="new-note">
+            <form method="POST">
+                {% csrf_token %}
+                {% for data in form %}
+                    {{ data.content }}
+                    {{ data }}
+                {% endfor %}
+                {% comment %} <textarea name="note_content" placeholder="Write your note..." required>{{ data_form }}</textarea> {% endcomment %}
+                <button type="submit">Create or Update</button>
+            </form>
+        </section>
+    </div>
+
+    
+
+    {% comment %} <section>
+        <form action="" method="post">
+            {{ data_form }}
+        </form>
+        <button type="submit">Submit</button>
+    </section> {% endcomment %}
+</body>
+</html>

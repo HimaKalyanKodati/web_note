@@ -1,0 +1,42 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>web note</title>
+    <link rel="stylesheet" href="{% static "css/styles.css" %}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>web note</h1>
+        </header>
+
+        <section class="actions">
+            <a href="{% url "noteapp:create" %}">Add</a>
+        </section>
+        
+        {% comment %} <section>
+            <form action="#" method="post">
+                {{ data_form }}
+            </form>
+        </section> {% endcomment %}
+
+        <section class="notes-list">
+            {% for note in notes %}
+            <div class="note">
+                <p>{{ note.content }}</p>
+                <div class="actions">
+                    {% comment %} <a href="{% url 'edit_note' note.id %}">Edit</a>
+                    <a href="{% url 'delete_note' note.id %}" class="delete">Delete</a> {% endcomment %}
+                    <a href="{% url "noteapp:edit" note.id %}">Edit</a>
+                    <a href="{% url "noteapp:delete" note.id %}" class="delete">Delete</a>
+                </div>
+            </div>
+            {% endfor %}
+        </section>
+        
+    </div>
+</body>
+</html>
