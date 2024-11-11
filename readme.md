@@ -13,7 +13,7 @@
 
 - **Backend**: Django (Python)
 - **Frontend**: CSS, HTML
-- **Database**: SQLite (or any configured database)
+- **Database**: SQLite
 
 ## Getting Started
 
